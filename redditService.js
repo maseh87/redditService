@@ -2,7 +2,11 @@
 (function() {
   angular.module('redditService', []).factory('redditFactory', function($http) {
     return {
-      test: 'test'
+      get: function() {
+        return $http.get('http://www.reddit.com/.json').then(function(results) {
+          return results.data;
+        });
+      }
     };
   });
 
